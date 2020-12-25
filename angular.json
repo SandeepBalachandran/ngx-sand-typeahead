@@ -1,0 +1,168 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "SandTypeahead": {
+      "projectType": "library",
+      "root": "projects/sand-typeahead",
+      "sourceRoot": "projects/sand-typeahead/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sand-typeahead/tsconfig.lib.json",
+            "project": "projects/sand-typeahead/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/sand-typeahead/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sand-typeahead/src/test.ts",
+            "tsConfig": "projects/sand-typeahead/tsconfig.spec.json",
+            "karmaConfig": "projects/sand-typeahead/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sand-typeahead/tsconfig.lib.json",
+              "projects/sand-typeahead/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "SandTypeaheadTester": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/SandTypeaheadTester",
+      "sourceRoot": "projects/SandTypeaheadTester/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/SandTypeaheadTester",
+            "index": "projects/SandTypeaheadTester/src/index.html",
+            "main": "projects/SandTypeaheadTester/src/main.ts",
+            "polyfills": "projects/SandTypeaheadTester/src/polyfills.ts",
+            "tsConfig": "projects/SandTypeaheadTester/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/SandTypeaheadTester/src/favicon.ico",
+              "projects/SandTypeaheadTester/src/assets"
+            ],
+            "styles": [
+              "projects/SandTypeaheadTester/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/SandTypeaheadTester/src/environments/environment.ts",
+                  "with": "projects/SandTypeaheadTester/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "SandTypeaheadTester:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "SandTypeaheadTester:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "SandTypeaheadTester:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/SandTypeaheadTester/src/test.ts",
+            "polyfills": "projects/SandTypeaheadTester/src/polyfills.ts",
+            "tsConfig": "projects/SandTypeaheadTester/tsconfig.spec.json",
+            "karmaConfig": "projects/SandTypeaheadTester/karma.conf.js",
+            "assets": [
+              "projects/SandTypeaheadTester/src/favicon.ico",
+              "projects/SandTypeaheadTester/src/assets"
+            ],
+            "styles": [
+              "projects/SandTypeaheadTester/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/SandTypeaheadTester/tsconfig.app.json",
+              "projects/SandTypeaheadTester/tsconfig.spec.json",
+              "projects/SandTypeaheadTester/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/SandTypeaheadTester/e2e/protractor.conf.js",
+            "devServerTarget": "SandTypeaheadTester:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "SandTypeaheadTester:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "SandTypeahead"
+}

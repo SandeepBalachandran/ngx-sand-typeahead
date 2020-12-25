@@ -1,0 +1,36 @@
+.typeahead-wrap {
+    .form-container {
+        input {
+            border: 1px solid #cdc0c0;
+            width: 100%;
+            padding: 10px;
+            border-radius: 3px;
+            box-shadow: 1px 1px 0px 0px #d9cfcf;
+        }
+    }
+    .typeahead-data-container {
+
+    }
+    .main-dropdown {
+        border-radius: 3px;
+        box-shadow: 1px 1px 5px 4px #8080802e;
+        transition: 0.5s;
+        padding:10px;
+        overflow: auto;
+        .typeahead-data {
+            p {
+                padding:10px;
+                border-bottom: 1px solid #bcbcbc;
+                &:hover {
+                    background:rgb(192, 189, 189);
+                    color:white;
+                    cursor: pointer;
+                    font-weight: bolder;
+                }
+                &:last-child {
+                    border-bottom: unset;
+                }
+            }
+        }
+    }
+}

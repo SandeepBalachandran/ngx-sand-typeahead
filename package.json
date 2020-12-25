@@ -1,0 +1,82 @@
+{
+  "name": "ngx-sand-typeahead",
+  "version": "0.0.1",
+  "description": "An angular typeahead package module.",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "angular-8",
+    "angular-9",
+    "angular8",
+    "angular9",
+    "angular10",
+    "ng2",
+    "ng4",
+    "ngx",
+    "typeahead",
+    "input",
+    "typeahead",
+    "custom",
+    "combobox",
+    "ng-typeahead",
+    "ngx-typeahead",
+    "ng2-typeahead"
+  ],
+  "author": {
+    "name": "Sandeep B",
+    "email": "sandeepbalachandran2@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sandeepbalachandran/ngx-sand-typeahead.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sandeepbalachandran/ngx-sand-typeahead/issues"
+  },
+  "homepage": "https://github.com/sandeepbalachandran/ngx-sand-typeahead#readme",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "typeaheadbuild": "ng build SandTypeahead --watch"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~10.0.6",
+    "@angular/common": "~10.0.6",
+    "@angular/compiler": "~10.0.6",
+    "@angular/core": "~10.0.6",
+    "@angular/forms": "~10.0.6",
+    "@angular/platform-browser": "~10.0.6",
+    "@angular/platform-browser-dynamic": "~10.0.6",
+    "@angular/router": "~10.0.6",
+    "rxjs": "~6.5.5",
+    "tslib": "^2.0.0",
+    "zone.js": "~0.10.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.1000.8",
+    "@angular-devkit/build-ng-packagr": "~0.1000.8",
+    "@angular/cli": "~10.0.5",
+    "@angular/compiler-cli": "~10.0.6",
+    "@types/node": "^12.11.1",
+    "@types/jasmine": "~3.5.0",
+    "@types/jasminewd2": "~2.0.3",
+    "codelyzer": "^6.0.0",
+    "jasmine-core": "~3.5.0",
+    "jasmine-spec-reporter": "~5.0.0",
+    "karma": "~5.0.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage-istanbul-reporter": "~3.0.2",
+    "karma-jasmine": "~3.3.0",
+    "karma-jasmine-html-reporter": "^1.5.0",
+    "ng-packagr": "^10.0.0",
+    "protractor": "~7.0.0",
+    "ts-node": "~8.3.0",
+    "tslint": "~6.1.0",
+    "typescript": "~3.9.5"
+  }
+}
