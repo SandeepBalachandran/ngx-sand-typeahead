@@ -1,0 +1,23 @@
+.container {
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 150px;
+    h1 {
+        font-family: cursive;
+        text-align: center;
+    }
+   
+}
+.footer {
+    font-family: cursive;
+    position: absolute;
+    right: 30px;
+    bottom:40px;
+    a {
+        padding: 10px;
+        text-decoration: none;
+        &:hover {
+            color:black;
+        }
+    }
+}
