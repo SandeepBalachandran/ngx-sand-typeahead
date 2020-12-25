@@ -46,28 +46,67 @@
 ## Demo 
 ![](./assets/demo.gif) 
 
+## Features
+* Type and search at the same time
+* Easy to customize
+* Plug and play feature
+* Limit number of items displayed in dropdown
+
+## Example
+
+## Installation
+
+```cmd
+npm install ngx-sand-typeahead
+```
+* After installation import SelectDropDownModule into your root or feature module
+
+```cmd
+import { SandTypeaheadModule } from 'sand-typeahead';
+```
+* Add ``` SandTypeaheadModule``` to the imports of your NgModule
+
+```cmd
+@NgModule({
+  imports: [
+    ...,
+    SandTypeaheadModule
+  ],
+  ...
+})
+class YourModule { ... }
+```
+
+* Use  ```<ngx-sandy-typeahead></ngx-sandy-typeahead> ``` in your templates to add the custom dropdown in your view like below
+
+```ts
+  <ngx-sand-typeahead (searchChange)="onSearch($event)" (valueSelect)="onSelect($event)" (blurInput)="onBlur($event)"
+    (clickInput)="onClick($event)" [options]="dropdowndata" [settings]="settings">
+  </ngx-sand-typeahead>
+ ```
+### Settings
+
+#### Input
+* ```options:Array``` - Array of string/objects that are to be the dropdown options. 
+* ```settings:Object``` - Settings object
+  * displayKey - The objectname of the array to be taken to display in the dropdown
+  * placeholder - Placeholder for the input field
+  * height - Height of the dropdown (px)
+  
+
+```cmd
+  settings = {
+    displayKey: 'name',
+    placeholder: 'Input here',
+    height: '300'
+  };
+```
+
+#### Output
+* ``` searchChange: Event  ``` - Change event when typing in the input field
+* ``` valueSelect: Event ``` - Select event when a value is selected from dropdown
+* ``` blurInput: Event ``` - Event once the input field is blurred
+* ``` clickInput:Event ``` - Click event upon clicking on the input field.
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
-
-<!-- ## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md). -->
