@@ -30,7 +30,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'ngx-sandy-typeahead',
+  selector: 'ngx-sand-typeahead',
   templateUrl: './sand-typeahead.component.html',
   styleUrls: ['./sand-typeahead.component.scss']
 })
@@ -84,15 +84,8 @@ export class SandTypeaheadComponent implements OnInit, OnChanges {
     }
   }
   ngOnChanges(changes: SimpleChanges): void {
-    // this.selectedItems = [];
-    // this.searchText = null;
     this.dropdowndata = this.options || [];
-    /* istanbul ignore else */
-    // if (changes.options) {
-    //   this.availableItems = [
-    //     ...this.options.sort(this.config.customComparator),
-    //   ];
-    // }
+  
   }
   onClick(): void {
     this.clicked = true;

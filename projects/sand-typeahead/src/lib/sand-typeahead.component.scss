@@ -20,12 +20,18 @@
         .typeahead-data {
             p {
                 padding:10px;
-                border-bottom: 1px solid #bcbcbc;
+                border-bottom: 1px solid #bcbcbc59;
                 &:hover {
-                    background:rgb(192, 189, 189);
-                    color:white;
+                    // background:rgb(192, 189, 189);
+                    // color:white;
+                    // cursor: pointer;
+                    // font-weight: bolder;
+                    box-shadow: 1px 1px 0 0 #c6bdbd;
                     cursor: pointer;
                     font-weight: bolder;
+                    border-radius: 4px;
+                    color: white;
+                    background: #0252f2;
                 }
                 &:last-child {
                     border-bottom: unset;
