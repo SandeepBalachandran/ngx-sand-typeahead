@@ -41,16 +41,16 @@ export class SandTypeaheadComponent implements OnInit, OnChanges {
   /**
    * input field disabled or not
    */
-  // @Input() public disabled: boolean;
+  @Input() public disabled: boolean;
 
   /**
    * Get the required values to display
    */
   @Input() public options: any = [];
 
-   /**
-   * Get the required settings to display
-   */
+  /**
+  * Get the required settings to display
+  */
   @Input() public settings: any = {};
 
 
@@ -77,38 +77,61 @@ export class SandTypeaheadComponent implements OnInit, OnChanges {
 
 
   constructor() { }
-
+  /**
+ * ngoninit checks whether there is data avilable to show dropdown.
+ */
   ngOnInit(): void {
     if (typeof this.options !== 'undefined' && Array.isArray(this.options)) {
       this.dropdowndata = this.options;
     }
   }
+  /**
+ * ngonchanges update the variable with incoming data.
+ */
   ngOnChanges(changes: SimpleChanges): void {
     this.dropdowndata = this.options || [];
-  
+
   }
+  /**
+ * The event upon clicking on the input field.
+ */
   onClick(): void {
     this.clicked = true;
     this.clickInput.emit(this.clicked);
   }
-
+  /**
+ * The event upon focus out the input field".
+ */
   onBlur(): void {
     this.clicked = false;
     this.blurInput.emit(this.clicked);
   }
+  /**
+ * The event upon user start searching on the input field".
+ */
   onSearch(): void {
     this.searchChange.emit(this.searchText);
 
   }
+  /**
+ * The event upon selecting a value from thd dropdown".
+ */
   onSelect(data): void {
     this.searchText = data;
     this.valueSelect.emit({ value: data });
     this.dropdowndata = [];
   }
+  /**
+ * The event upon clicking outside the input box will hide the dropdown and empties the array.
+ */
 
   @HostListener('document:click', ['$event']) onDocumentClick(event) {
     this.dropdowndata = [];
   }
+
+  /**
+ * The event upon clicking outside the input box will hide the dropdown and empties the array.
+ */
 
   @HostListener('blur', ['$event']) public blur() {
     this.dropdowndata = [];

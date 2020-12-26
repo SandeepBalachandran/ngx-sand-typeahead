@@ -1,6 +1,39 @@
 {
   "name": "ngx-sand-typeahead",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "description": "An angular typeahead package module.",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "angular-8",
+    "angular-9",
+    "angular8",
+    "angular9",
+    "angular10",
+    "ng2",
+    "ng4",
+    "ngx",
+    "typeahead",
+    "input",
+    "typeahead",
+    "custom",
+    "combobox",
+    "ng-typeahead",
+    "ngx-typeahead",
+    "ng2-typeahead"
+  ],
+  "author": {
+    "name": "Sandeep B",
+    "email": "sandeepbalachandran2@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sandeepbalachandran/ngx-sand-typeahead.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sandeepbalachandran/ngx-sand-typeahead/issues"
+  },
+  "homepage": "https://github.com/sandeepbalachandran/ngx-sand-typeahead#readme",
   "peerDependencies": {
     "@angular/common": "^10.0.14",
     "@angular/core": "^10.0.14"
