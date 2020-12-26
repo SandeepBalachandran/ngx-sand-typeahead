@@ -44,7 +44,7 @@
 <hr>
 
 ## Demo 
-![](./assets/demo.gif) 
+![](https://github.com/SandeepBalachandran/ngx-sand-typeahead/raw/main/assets/demo.gif) 
 
 ## Features
 * Type and search at the same time
@@ -77,7 +77,7 @@ import { SandTypeaheadModule } from 'sand-typeahead';
 class YourModule { ... }
 ```
 
-* Use  ```<ngx-sandy-typeahead></ngx-sandy-typeahead> ``` in your templates to add the custom dropdown in your view like below
+* Use  ```<ngx-sand-typeahead></ngx-sand-typeahead> ``` in your templates to add the custom dropdown in your view like below
 
 ```ts
   <ngx-sand-typeahead (searchChange)="onSearch($event)" (valueSelect)="onSelect($event)" (blurInput)="onBlur($event)"
@@ -107,6 +107,7 @@ class YourModule { ... }
 * ``` valueSelect: Event ``` - Select event when a value is selected from dropdown
 * ``` blurInput: Event ``` - Event once the input field is blurred
 * ``` clickInput:Event ``` - Click event upon clicking on the input field.
-
+# Contribute
+Please check the [**Contributing Guidelines**](https://github.com/SandeepBalachandran/ngx-sand-typeahead/blob/master/CONTRIBUTING.md) before contributing.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.

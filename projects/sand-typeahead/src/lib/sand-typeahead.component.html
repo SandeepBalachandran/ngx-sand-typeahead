@@ -1,6 +1,6 @@
 <div class="typeahead-wrap">
     <div class="form-container">
-        <input type="search" placeholder="{{settings.placeholder}}" (cilck)="onClick()" (blur)="onBlur()" [(ngModel)]="searchText" (input)="onSearch()">
+        <input type="search" [disabled] ="disabled" placeholder="{{settings.placeholder}}" (cilck)="onClick()" (blur)="onBlur()" [(ngModel)]="searchText" (input)="onSearch()">
     </div>
     <div class="typeahead-data-container main-dropdown" [style.height.px]="settings.height"  *ngIf="dropdowndata.length>0" (click)="$event.stopPropagation()">
         <div class="typeahead-data" >

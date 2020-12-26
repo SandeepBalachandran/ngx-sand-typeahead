@@ -1,6 +1,6 @@
 <div class="container">
   <h1>ngx-sand-typeahead</h1>
-  <ngx-sand-typeahead (searchChange)="onSearch($event)" (valueSelect)="onSelect($event)" (blurInput)="onBlur($event)"
+  <ngx-sand-typeahead (searchChange)="onSearch($event)" [disabled]="disabled" (valueSelect)="onSelect($event)" (blurInput)="onBlur($event)"
     (clickInput)="onClick($event)" [options]="dropdowndata" [settings]="settings">
   </ngx-sand-typeahead>
 </div>

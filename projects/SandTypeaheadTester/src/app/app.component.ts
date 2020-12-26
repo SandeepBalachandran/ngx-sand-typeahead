@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   title = 'SandTypeaheadTester';
   dropdowndata: any = [];
   searchText: any;
+  disabled: any;
   settings = {
     displayKey: 'name',
     placeholder: 'Input here',
@@ -44,6 +45,7 @@ export class AppComponent implements OnInit {
   }
   onSelect(data): void {
     this.searchText = data;
+    this.disabled =true;
     this.dropdowndata = [];
   }
 }
