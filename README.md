@@ -46,7 +46,8 @@
 ## Demo 
 ![](https://github.com/SandeepBalachandran/ngx-sand-typeahead/raw/main/assets/demo.gif) 
 
-[NPM package](https://www.npmjs.com/package/ngx-sand-typeahead)
+* [Live Demo](https://angular-8-ngx-sand-typeahead.stackblitz.io/)
+* [NPM package](https://www.npmjs.com/package/ngx-sand-typeahead)
 ## Features
 * Type and search at the same time
 * Easy to customize
