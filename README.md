@@ -8,7 +8,7 @@
     <img alt="GitHub release" src="https://img.shields.io/github/v/release/SandeepBalachandran/ngx-sand-typeahead?include_prereleases&style=flat-square">
   </a> 
 
-  <a href="https://github.com/SandeepBalachandran/ngx-sand-typeahead/commits/master" target="_blank">
+  <a href="https://github.com/SandeepBalachandran/ngx-sand-typeahead/commits/main" target="_blank">
     <img src="https://img.shields.io/github/last-commit/SandeepBalachandran/ngx-sand-typeahead?style=flat-square" alt="GitHub last commit">
   </a>
 
@@ -46,6 +46,7 @@
 ## Demo 
 ![](https://github.com/SandeepBalachandran/ngx-sand-typeahead/raw/main/assets/demo.gif) 
 
+[NPM package](https://www.npmjs.com/package/ngx-sand-typeahead)
 ## Features
 * Type and search at the same time
 * Easy to customize
@@ -107,7 +108,13 @@ class YourModule { ... }
 * ``` valueSelect: Event ``` - Select event when a value is selected from dropdown
 * ``` blurInput: Event ``` - Event once the input field is blurred
 * ``` clickInput:Event ``` - Click event upon clicking on the input field.
+
+## Help Improve
+
+Found a bug or an issue with this? [Open a new issue](https://github.com/SandeepBalachandran/ngx-sand-typeahead/issues) here on GitHub.
+
+
 # Contribute
-Please check the [**Contributing Guidelines**](https://github.com/SandeepBalachandran/ngx-sand-typeahead/blob/master/CONTRIBUTING.md) before contributing.
+Please check the [**Contributing Guidelines**](https://github.com/SandeepBalachandran/ngx-sand-typeahead/blob/main/CONTRIBUTING.md) before contributing.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
