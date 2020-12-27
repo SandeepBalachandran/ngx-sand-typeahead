@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
   }
   onSelect(data): void {
     this.searchText = data;
-    this.disabled =true;
+    this.disabled =false;
     this.dropdowndata = [];
   }
 }

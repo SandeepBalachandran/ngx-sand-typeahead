@@ -1,22 +1,3 @@
-
-// @Component({
-//   selector: 'lib-SandTypeahead',
-//   template: `
-//     <p>
-//       sand-typeahead works!
-//     </p>
-//   `,
-//   styles: [
-//   ]
-// })
-// export class SandTypeaheadComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import {
   OnChanges,
