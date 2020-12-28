@@ -41,7 +41,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "typeaheadbuild": "ng build SandTypeahead --watch"
+    "watchbuild": "ng build SandTypeahead --watch"
   },
   "private": true,
   "dependencies": {
