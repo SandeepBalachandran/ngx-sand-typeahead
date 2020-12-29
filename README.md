@@ -91,16 +91,24 @@ class YourModule { ... }
 #### Input
 * ```options:Array``` - Array of string/objects that are to be the dropdown options. 
 * ```settings:Object``` - Settings object
-  * displayKey - The objectname of the array to be taken to display in the dropdown
-  * placeholder - Placeholder for the input field
-  * height - Height of the dropdown (px)
+ 
+  | Property        | Purpose                                                               | Type   | Default value  |
+  | ----------------|---------------------------------------------------------------------- |--------|----------------|
+  | displayKey      | The objectname of the array to be taken to display in the dropdown    | string | name           |
+  | placeholder     | Placeholder for the input field                                       | string |  Input here    |
+  | height          | Height of the dropdown (px)                                           | number | 300            |
+  | Inputdirection  | The direction of the search input can be rtl or ltr(default)         | string |    ltr         |
+  | limit           | Number thats limits the no of options displayed in the UI (if zero, options will not be limited)                                                             | number |       0        |
+ 
   
 
 ```cmd
   settings = {
     displayKey: 'name',
     placeholder: 'Input here',
-    height: '300'
+    inputDirection: 'ltr',
+    height: 300,
+    limit:20
   };
 ```
 

@@ -1,0 +1,10 @@
+<div class="typeahead-wrap">
+    <div class="form-container">
+        <input type="search"  [style.direction]="settings.inputDirection" [disabled] ="disabled" placeholder="{{settings.placeholder}}" (cilck)="onClick()" (blur)="onBlur()" [(ngModel)]="searchText" (input)="onSearch()">
+    </div>
+    <div class="typeahead-data-container main-dropdown" [style.height.px]="settings.height"  *ngIf="dropdowndata.length>0" (click)="$event.stopPropagation()">
+        <div class="typeahead-data" >
+            <p  *ngFor="let data of dropdowndata| limitTo : settings.limit;let i = index" (click)="onSelect(data,i)">{{data[settings.displayKey]}}</p>
+        </div>
+    </div>
+</div>

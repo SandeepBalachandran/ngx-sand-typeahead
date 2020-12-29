@@ -15,7 +15,9 @@ export class AppComponent implements OnInit {
   settings = {
     displayKey: 'name',
     placeholder: 'Input here',
-    height: '300'
+    inputDirection: 'ltr',
+    height: '300',
+    limit:20
   };
   ngOnInit(): void {
 
@@ -32,7 +34,7 @@ export class AppComponent implements OnInit {
     console.log(event);
     this.service.populateData(event).subscribe(
       (data) => {
-        this.dropdowndata = data.splice(0, 10);
+        this.dropdowndata = data
         console.log(this.dropdowndata);
       },
       (error) => {
@@ -44,6 +46,7 @@ export class AppComponent implements OnInit {
     );
   }
   onSelect(data): void {
+    console.log(data)
     this.searchText = data;
     this.disabled =false;
     this.dropdowndata = [];
