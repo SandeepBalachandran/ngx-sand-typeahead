@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppService } from './app.service';
 
 @Component({
@@ -7,8 +8,13 @@ import { AppService } from './app.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(public service: AppService) {}
+  constructor(public service: AppService, private _fb: FormBuilder) {
+    this.reactiveForm = _fb.group({
+      name: [{value: ''}, Validators.required]
+    });
+  }
   title = 'SandTypeaheadTester';
+  reactiveForm: FormGroup;
   dropdowndata: any = [];
   searchText: any;
   disabled: any;
@@ -16,15 +22,29 @@ export class AppComponent implements OnInit {
     displayKey: 'name',
     placeholder: 'Input here',
     inputDirection: 'ltr',
-    height: '300',
-    limit:20
+    height: 300,
+    limit: 20,
+    subTitleEnabled: true,
+    subTitleKey: 'region',
+    minorTitleEnabled: true,
+    minorTitleKey: 'population',
   };
   ngOnInit(): void {
+    this.service.allData().subscribe(
+      (data) => {
+        this.dropdowndata = data;
+      },
+      (error) => {
+
+      },
+      () => {
+
+      }
+    );
 
   }
 
   onClick(event): void{
-   console.log(event);
   }
 
   onBlur(event): void {
@@ -32,10 +52,9 @@ export class AppComponent implements OnInit {
   }
   onSearch(event): void {
     console.log(event);
-    this.service.populateData(event).subscribe(
+    this.service.populateData(event.keyword).subscribe(
       (data) => {
-        this.dropdowndata = data
-        console.log(this.dropdowndata);
+        // this.dropdowndata = data;
       },
       (error) => {
 
@@ -46,9 +65,13 @@ export class AppComponent implements OnInit {
     );
   }
   onSelect(data): void {
-    console.log(data)
     this.searchText = data;
-    this.disabled =false;
-    this.dropdowndata = [];
+    this.disabled = false;
+  }
+
+  submitReactiveForm() {
+    if (this.reactiveForm.valid) {
+      console.log(this.reactiveForm.value);
+    }
   }
 }
