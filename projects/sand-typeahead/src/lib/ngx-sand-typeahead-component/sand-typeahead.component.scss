@@ -1,15 +1,60 @@
+// @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 .typeahead-wrap {
+    font-family: sans-serif;
+    & * {
+        box-sizing: border-box;
+    }
+   
     .form-container {
+        width: 100%;
+        position: relative;
         input {
             border: 1px solid #cdc0c0;
             width: 100%;
             padding: 10px;
             border-radius: 3px;
             box-shadow: 1px 1px 0px 0px #d9cfcf;
+            margin-bottom:0;
+         
+            &:focus {
+                border: 1px solid #a9a1a1;
+                outline: none;
+            }
+        }
+        // Not using right now
+        .close-icon {
+            position: absolute;
+            right: 10px;
+            margin: auto;
+            cursor: pointer;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            close-i {
+                color: rgba(0,0,0,.54);
+                font-size: 22px;
+                vertical-align: middle;
+            }
         }
     }
     .typeahead-data-container {
-
+        .typeahead-data {
+            .tiles {
+                .main-title {
+                    display: inline-block;
+                    font-size: 15px;
+                }
+                .sub-title {
+                    font-size: 13px;
+                    color: grey;
+                }
+                .minor-title {
+                    font-size:10px;
+                    display: inline-block;
+                    float: right;
+                }
+            }
+        }
     }
     .main-dropdown {
         border-radius: 3px;
@@ -17,10 +62,11 @@
         transition: 0.5s;
         padding:10px;
         overflow: auto;
+        height: 100%;
         .typeahead-data {
-            p {
+            div.tiles {
                 padding:10px;
-                border-bottom: 1px solid #bcbcbc59;
+                // border-bottom: 1px solid #bcbcbc59;
                 &:hover {
                     box-shadow: 1px 1px 0 0 #c6bdbd;
                     cursor: pointer;
@@ -28,9 +74,19 @@
                     border-radius: 4px;
                     color: white;
                     background: #0252f2;
+                    > .sub-title {
+                        color: white;
+                    }
                 }
                 &:last-child {
                     border-bottom: unset;
+                }
+            }
+            .heading {
+                padding:10px;
+                .text {
+                    font-size: 15px;
+                    color: grey;
                 }
             }
         }

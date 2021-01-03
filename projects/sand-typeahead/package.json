@@ -1,6 +1,6 @@
 {
   "name": "ngx-sand-typeahead",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "An angular typeahead package module.",
   "license": "MIT",
   "keywords": [

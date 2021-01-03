@@ -1,8 +1,17 @@
 <div class="container">
   <h1>ngx-sand-typeahead</h1>
-  <ngx-sand-typeahead (searchChange)="onSearch($event)" [disabled]="disabled" (valueSelect)="onSelect($event)" (blurInput)="onBlur($event)"
-    (clickInput)="onClick($event)" [options]="dropdowndata" [settings]="settings">
+  <ngx-sand-typeahead (searchChange)="onSearch($event)" [disabled]="disabled" (valueSelect)="onSelect($event)"
+    (blurInput)="onBlur($event)" (clickInput)="onClick($event)" [options]="dropdowndata" [settings]="settings">
   </ngx-sand-typeahead>
+
+  <form  autocomplete="off" novalidate [formGroup]="reactiveForm" (ngSubmit)="submitReactiveForm()">
+    <h1>ngx-sand-typeahead</h1>
+    <ngx-sand-typeahead  formControlName="name" (searchChange)="onSearch($event)" [disabled]="disabled" (valueSelect)="onSelect($event)"
+      (blurInput)="onBlur($event)" (clickInput)="onClick($event)" [options]="dropdowndata" [settings]="settings">
+    </ngx-sand-typeahead>
+    <button class="btn" type="submit">Submit</button>
+  </form>
+  <pre>{{ reactiveForm.value | json }}</pre>
 </div>
 <div class="footer">
   <a target="_blank" href="https://github.com/SandeepBalachandran">Github</a>
