@@ -2,11 +2,6 @@ import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@a
 import {
   OnChanges,
   SimpleChanges,
-  ViewChildren,
-  ElementRef,
-  QueryList,
-  AfterViewInit,
-  ChangeDetectorRef,
   forwardRef,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -101,7 +96,7 @@ export class SandTypeaheadComponent implements OnInit, OnChanges , ControlValueA
    */
   writeValue(value: any): void {
     if (value) {
-
+      //
     }
   }
   /**
