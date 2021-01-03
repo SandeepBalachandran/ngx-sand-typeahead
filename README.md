@@ -51,7 +51,6 @@
 * [NPM package](https://www.npmjs.com/package/ngx-sand-typeahead)
 
 ## Table of contents
-====================
 * [Features](#features)
 * [Installation](#getting-started)
 * [API](#api)
@@ -66,6 +65,7 @@
 * Easy to customize
 * Plug and play feature
 
+[Goto Top](#table-of-contents)
 
 ## Getting Started
 ### Step 1 : Install the package 
@@ -99,6 +99,8 @@ class YourModule { ... }
     (clickInput)="onClick($event)" [options]="dropdowndata" [settings]="settings">
   </ngx-sand-typeahead>
  ```
+ 
+ [Goto Top](#table-of-contents)
 ## API
 
 #### Input
@@ -146,6 +148,8 @@ class YourModule { ... }
   | ```valueSelect```  | Event    | Select event when a value is selected from dropdown     | 
   | ```blurInput ```   | Event    |Event once the input field is blurred     | 
   | ```clickInput```   | Event    | Click event upon clicking on the input field     | 
+  
+  [Goto Top](#table-of-contents)
 
 ## Help Improve
 
