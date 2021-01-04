@@ -1,4 +1,4 @@
-name: ng2-pdf-viewer workflow
+name: ngx-sand-typeahead workflow
 on:
   push:
     branches:
