@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import {
   OnChanges,
   SimpleChanges,
@@ -24,6 +24,16 @@ export class SandTypeaheadComponent implements OnInit, OnChanges , ControlValueA
   tempData: any = [];
   searchText: any;
   isOpen: any;
+
+  /**
+   * Custom template for the end user for dropdown
+   */
+  @Input() itemTemplate !: TemplateRef<any>;
+   
+  /**
+   * Custom template for no data found
+   */
+  @Input() notFoundTemplate !: TemplateRef<any>;
 
   /**
    * input field disabled or not
@@ -61,6 +71,7 @@ export class SandTypeaheadComponent implements OnInit, OnChanges , ControlValueA
    */
   @Output() public clickInput: EventEmitter<any> = new EventEmitter();
   clicked: any;
+  noData: boolean;
 
 
   constructor() { }
@@ -115,8 +126,6 @@ export class SandTypeaheadComponent implements OnInit, OnChanges , ControlValueA
   }
 
 
-
-
   /**
    * The event upon clicking on the input field.
    */
@@ -150,6 +159,7 @@ export class SandTypeaheadComponent implements OnInit, OnChanges , ControlValueA
       this.isOpen = false;
     }
     this.dropdowndata = tempDropdowndata;
+    this.noData = this.dropdowndata.length? false:true;
 
     const returnObj = {keyword: this.searchText, values: this.dropdowndata};
     this.searchChange.emit(returnObj);
@@ -158,7 +168,7 @@ export class SandTypeaheadComponent implements OnInit, OnChanges , ControlValueA
    * The event upon selecting a value from thd dropdown".
    */
   onSelect(data, index): void {
-    this.searchText = data.name;
+    this.searchText = data[this.settings.displayKey];
     this.propagateChange({ index, value: data });
     this.isOpen = false;
     this.valueSelect.emit({ index, value: data });
@@ -180,7 +190,7 @@ export class SandTypeaheadComponent implements OnInit, OnChanges , ControlValueA
   }
 
   /**
-   * initialize the config and other properties
+   * initialize the settings and other properties
    */
   private settingsInit(): void {
     const settings: Settings = {
@@ -193,7 +203,8 @@ export class SandTypeaheadComponent implements OnInit, OnChanges , ControlValueA
       subTitleKey: '',
       minorTitleEnabled: false,
       minorTitleKey: '',
-      heading: ''
+      heading: '',
+      noDataText:'No data found'
     };
     // if incoming settings object is empty , it will be initialized with predefiened values.
     if (this.settings === 'undefined' || Object.keys(this.settings).length === 0) {

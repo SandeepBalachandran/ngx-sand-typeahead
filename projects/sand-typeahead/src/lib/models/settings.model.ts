@@ -9,4 +9,5 @@ export class Settings {
     minorTitleEnabled?: boolean;
     minorTitleKey?: string;
     heading?: string;
+    noDataText?:string;
 }

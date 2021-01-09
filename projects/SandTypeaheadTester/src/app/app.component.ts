@@ -10,7 +10,7 @@ import { AppService } from './app.service';
 export class AppComponent implements OnInit {
   constructor(public service: AppService, private _fb: FormBuilder) {
     this.reactiveForm = _fb.group({
-      name: [{value: ''}, Validators.required]
+      name: [{ value: '' }, Validators.required]
     });
   }
   title = 'SandTypeaheadTester';
@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
     subTitleKey: 'region',
     minorTitleEnabled: true,
     minorTitleKey: 'population',
+    noDataText:"User defined text"
   };
   ngOnInit(): void {
     this.service.allData().subscribe(
@@ -44,7 +45,7 @@ export class AppComponent implements OnInit {
 
   }
 
-  onClick(event): void{
+  onClick(event): void {
   }
 
   onBlur(event): void {
@@ -66,7 +67,7 @@ export class AppComponent implements OnInit {
   }
   onSelect(data): void {
     this.searchText = data;
-    this.disabled = false;
+    // this.disabled = false;
   }
 
   submitReactiveForm() {

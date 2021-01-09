@@ -7,17 +7,17 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AppService {
-public apiRoot = 'https://restcountries.eu/rest/v2/';
-  constructor(private _http: HttpClient) {}
+  public apiRoot = 'https://restcountries.eu/rest/v2/';
+  constructor(private _http: HttpClient) { }
 
   handlError(error) {
     return throwError(error.error.message);
   }
-  populateData(keyword): Observable <any> {
-      return this._http.get<any>(this.apiRoot + 'name/' + keyword).pipe(catchError(this.handlError));
+  populateData(keyword): Observable<any> {
+    return this._http.get<any>(this.apiRoot + 'name/' + keyword).pipe(catchError(this.handlError));
   }
 
-  allData(): Observable <any> {
+  allData(): Observable<any> {
     return this._http.get<any>(this.apiRoot + 'all').pipe(catchError(this.handlError));
-}
+  }
 }
