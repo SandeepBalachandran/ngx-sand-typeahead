@@ -46,7 +46,7 @@
 ## Demo 
 ![](https://github.com/SandeepBalachandran/ngx-sand-typeahead/raw/main/assets/demo.gif) 
 
-* [Live Demo](https://angular-8-ngx-sand-typeahead.stackblitz.io/)
+* [Live Demo](https://sandeepbalachandran.github.io/ngx-sand-typeahead/)
 * [Playground](https://stackblitz.com/edit/angular-8-ngx-sand-typeahead)
 * [NPM package](https://www.npmjs.com/package/ngx-sand-typeahead)
 
@@ -59,6 +59,7 @@
 ## Features
 * Type and search at the same time
 * Limit number of items displayed in dropdown
+* Option to choose default template for ui or fully end user customization
 * Optional second and third parameter to display
 * Angular form support
 * Built in filter functionality
@@ -92,12 +93,42 @@ class YourModule { ... }
 ```
 
 ### Usage  
-* Use ```<ngx-sand-typeahead></ngx-sand-typeahead> ``` in your templates to add the custom dropdown in your view like below
+* Use ```<ngx-sand-typeahead></ngx-sand-typeahead> ``` in your templates to add the default dropdown in your view like below
 
 ```ts
-  <ngx-sand-typeahead (searchChange)="onSearch($event)" (valueSelect)="onSelect($event)" (blurInput)="onBlur($event)"
-    (clickInput)="onClick($event)" [options]="dropdowndata" [settings]="settings">
+  <ngx-sand-typeahead 
+   (searchChange)="onSearch($event)" 
+   (valueSelect)="onSelect($event)" 
+   (blurInput)="onBlur($event)"
+   (clickInput)="onClick($event)" 
+   [disabled]="disabled" 
+   [options]="dropdowndata" 
+   [settings]="settings">
   </ngx-sand-typeahead>
+ ```
+ * For custom dropdown in your view  pass ```[itemTemplate]="yourDropdownTemplate"``` and ```[notFoundTemplate]="yourNotFoundTemplate"``` as inputs
+ 
+ ```ts
+ <ngx-sand-typeahead 
+  (searchChange)="onSearch($event)"
+  (valueSelect)="onSelect($event)"
+  (blurInput)="onBlur($event)" 
+  (clickInput)="onClick($event)"
+  [disabled]="disabled" 
+  [options]="dropdowndata" 
+  [settings]="settings"   
+  [itemTemplate]="yourDropdownTemplate" 
+  [notFoundTemplate]="yourNotFoundTemplate">
+ </ngx-sand-typeahead>
+ 
+ <ng-template #yourDropdownTemplate let-item let-i="index">
+   <a [innerHTML]="item.name"></a>
+ </ng-template>
+
+ <ng-template #yourNotFoundTemplate let-noDataText >
+   <a [innerHTML]="noDataText"></a>
+ </ng-template>
+
  ```
  
  [Goto Top](#table-of-contents)
@@ -119,24 +150,24 @@ class YourModule { ... }
       subTitleKey: '',
       minorTitleEnabled: false,
       minorTitleKey: '',
-      heading: ''
+      heading: '',
+      noDataText:'No data found'
   };
 ```
  
-  | Property        | Purpose                                                               | Type   | Default value  |
-  | ----------------|---------------------------------------------------------------------- |--------|----------------|
-  | displayKey      | The objectname of the array to be taken to display in the dropdown    | string | name           |
-  | placeholder     | Placeholder for the input field                                       | string |  Input here    |
-  | Max height          | Height of the dropdown (px)                                           | number | 300            |
-  | Inputdirection  | The direction of the search input. Can be ``rtl`` or ``ltr`` ( default )         | string |    ltr         |
-  | heading  | The header text of the dropdown to be displayed       | string |    none         |
-  | subtitleEnabled | The optional sub heading beneath the main title        | boolean |    false         |
-  | subTitleKey  | The objectname of the array to be taken to display in the subtitle field      | string |    none         |
-  | minorTitleEnabled | The optional minor heading at the very right of the main title       | string |    false         |
-  | minorTitleKey  | The objectname of the array to be taken to display in the minortitle field       | string |    none         |
-  | limit           | Number thats limits the number of options displayed in the UI (if zero, options will not be limited)                                                             | number |       0        |
- 
-  
+  | Property        | Purpose                                                                                               | Type   | Default value  | Mandatory  |
+  | ----------------|------------------------------------------------------------------------------------------------------ |--------|----------------|----------------|
+  | displayKey      | The objectname of the array to be taken to display in the dropdown                                    | string | name           | Yes |
+  | placeholder     | Placeholder for the input field                                                                       | string |  Input here    | No |
+  | Max height          | Height of the dropdown (px)                                                                       | number | 300            | No |
+  | Inputdirection  | The direction of the search input. Can be ``rtl`` or ``ltr`` ( default )                              | string |    ltr         | No |
+  | heading  | The header text of the dropdown to be displayed                                                              | string |    none         | No |
+  | subtitleEnabled | The optional sub heading beneath the main title                                                       | boolean |    false         | No |
+  | subTitleKey  | The objectname of the array to be taken to display in the subtitle field                                 | string |    none         | No |
+  | minorTitleEnabled | The optional minor heading at the very right of the main title                                      | string |    false         | No |
+  | minorTitleKey  | The objectname of the array to be taken to display in the minortitle field                             | string |    none         | No |
+  | limit           | Number thats limits the number of options displayed in the UI (if zero, options will not be limited)  | number |  0               | No |
+  | noDataText  | The placeholder when there is no value matching with the word entered                                     | string |    No data found     | No |
 
 
 
@@ -159,4 +190,4 @@ Found a bug or an issue with this? [Open a new issue](https://github.com/Sandeep
 ## Contribute
 Please check the [**Contributing Guidelines**](https://github.com/SandeepBalachandran/ngx-sand-typeahead/blob/main/CONTRIBUTING.md) before contributing.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5. 
