@@ -4,19 +4,40 @@
             placeholder="{{settings.placeholder}}" (click)="onClick()" (blur)="onBlur()" [(ngModel)]="searchText"
             (input)="onSearch()">
     </div>
-    <div class="typeahead-data-container main-dropdown" [style.maxHeight.px]="settings.height"
-        *ngIf="isOpen" (click)="$event.stopPropagation()">
-        <div class="typeahead-data" >
-            <div class="heading" *ngIf="dropdowndata.length > 0 && settings.heading !== ''">
-                <div class="text">{{settings.heading}}</div>
-            </div>
-            <div *ngFor="let data of dropdowndata| limitTo : settings.limit;let i = index" class="tiles"
-                (click)="onSelect(data,i)">
-                <div class="main-title title ">{{data[settings.displayKey] }}</div>
-                <div class="minor-title title" *ngIf="settings.minorTitleEnabled">{{data[settings.minorTitleKey]}}</div>
-                <div class="sub-title title" *ngIf="settings.subTitleEnabled">{{data[settings.subTitleKey]}}</div>
+    <div class="typeahead-data-container main-dropdown" [style.maxHeight.px]="settings.height" *ngIf="isOpen"
+        (click)="$event.stopPropagation()">
+        <ng-template #defaultTemplate>
+            <div class="typeahead-data">
+                <div class="heading" *ngIf="dropdowndata.length > 0 && settings.heading !== ''">
+                    <div class="text">{{settings.heading}}</div>
+                </div>
+                <div *ngFor="let data of dropdowndata| limitTo : settings.limit;let i = index" class="tiles"
+                    (click)="onSelect(data,i)">
+                    <div class="main-title title ">{{data[settings.displayKey] }}</div>
+                    <div class="minor-title title" *ngIf="settings.minorTitleEnabled">{{data[settings.minorTitleKey]}}
+                    </div>
+                    <div class="sub-title title" *ngIf="settings.subTitleEnabled">{{data[settings.subTitleKey]}}</div>
 
+                </div>
+                <div class="no-data" *ngIf="noData">
+                    <span>{{settings.noDataText}}</span>
+                </div>
             </div>
+        </ng-template>
+
+        <ng-container *ngFor="let data of dropdowndata| limitTo : settings.limit;let i = index" class="item">
+            <!--object logic-->
+            <div (click)="onSelect(data,i)" class="sand-container">
+                <ng-container
+                    *ngTemplateOutlet="itemTemplate || defaultTemplate; context: { $implicit: data ,index : i  }">
+                </ng-container>
+            </div>
+        </ng-container>
+
+        <!--Not found-->
+        <div class="not-found" *ngIf="noData">
+            <ng-container *ngTemplateOutlet="notFoundTemplate || defaultTemplate;  context: { $implicit: settings.noDataText  }">
+            </ng-container>
         </div>
     </div>
 </div>

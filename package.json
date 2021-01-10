@@ -20,7 +20,8 @@
     "package": "npm run copy-files && npm run prod-build &&  npm run npm_pack",
     "package-major": "npm run major && npm run package",
     "package-minor": "npm run minor && npm run package",
-    "package-patch": "npm run patch && npm run package"
+    "package-patch": "npm run patch && npm run package",
+    "publish" : "cd dist/sand-typeahead && npm publish"
   },
   "private": true,
   "dependencies": {
