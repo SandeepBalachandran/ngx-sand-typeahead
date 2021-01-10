@@ -138,6 +138,8 @@ class YourModule { ... }
 
 * ```options:Array``` - Array of objects that are to be the dropdown options. 
 * ```settings:Object``` - Settings object to change the default configurations.
+* ```formControlName``` - Tracks the FormControl instance bound to the directive. Used with Reactive forms
+* ```[(ngModel)]``` - Tracks the value bound to this directive. Used with Template-driven forms
 
 ```cmd
   settings = {
