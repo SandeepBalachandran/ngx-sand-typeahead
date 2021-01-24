@@ -141,10 +141,11 @@ class YourModule { ... }
 * ```formControlName``` - Tracks the FormControl instance bound to the directive. Used with Reactive forms
 * ```[(ngModel)]``` - Tracks the value bound to this directive. Used with Template-driven forms
 
-```cmd
+```ts
   settings = {
       inputDirection: 'ltr',
       displayKey: 'name',
+      filterKey: 'name',
       placeholder: 'Input here',
       height: 300,
       limit: 0,

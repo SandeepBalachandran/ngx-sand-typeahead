@@ -1,34 +1,43 @@
-<div class="container">
-  <h1>ngx-sand-typeahead</h1>
-  <ngx-sand-typeahead (searchChange)="onSearch($event)" [disabled]="disabled" (valueSelect)="onSelect($event)"
-    (blurInput)="onBlur($event)" (clickInput)="onClick($event)" [options]="dropdowndata" [settings]="settings"   
-    [itemTemplate]="itemTemplateStatic" [notFoundTemplate]="notFound">
-  </ngx-sand-typeahead>
-  <ng-template #itemTemplateStatic let-item let-position="index">
-    <a [innerHTML]="item.name"></a>
-  </ng-template>
-
-  <ng-template #notFound let-noDataText >
-    <a [innerHTML]="noDataText"></a>
-  </ng-template>
-
-
-
-
-
-  <form  autocomplete="off" novalidate [formGroup]="reactiveForm" (ngSubmit)="submitReactiveForm()">
+<div class="flex-container">
+  <div class="row">
     <h1>ngx-sand-typeahead</h1>
-    <ngx-sand-typeahead  formControlName="name" (searchChange)="onSearch($event)" [attr.disabled]="disabled" (valueSelect)="onSelect($event)"
-      (blurInput)="onBlur($event)" (clickInput)="onClick($event)" [options]="dropdowndata" [settings]="settings"  [itemTemplate]="itemTemplateStatic">
+    <h3>Default design with optional parameters</h3>
+    <ngx-sand-typeahead (searchChange)="onSearch($event)" [(ngModel)]="someething" [disabled]="disabled"
+      (valueSelect)="onSelect($event)" (blurInput)="onBlur($event)" (clickInput)="onClick($event)"
+      [options]="dropdowndata" [settings]="settings" [itemTemplate]="" [notFoundTemplate]="notFound">
     </ngx-sand-typeahead>
     <ng-template #itemTemplateStatic let-item let-position="index">
-      <!-- <a [innerHTML]="item.name"></a>
-      <span>{{position}}</span> -->
-      <div>{{position}}{{item.name}} </div>
+      <a [innerHTML]="item.name"></a>
     </ng-template>
-    <button class="btn" type="submit">Submit</button>
-  </form>
-  <pre>{{ reactiveForm.value | json }}</pre>
+
+    <ng-template #notFound let-noDataText>
+      <a [innerHTML]="noDataText"></a>
+    </ng-template>
+  </div>
+
+
+
+  <div class="row">
+    <form autocomplete="off" novalidate [formGroup]="reactiveForm" (ngSubmit)="submitReactiveForm()">
+      <h1>ngx-sand-typeahead</h1>
+      <h3>Custom deisgn. You can design the layout. Form support</h3>
+      <ngx-sand-typeahead formControlName="name" (searchChange)="onSearch($event)" [attr.disabled]="disabled"
+        (valueSelect)="onSelect($event)" (blurInput)="onBlur($event)" (clickInput)="onClick($event)"
+        [options]="dropdowndata" [settings]="settings" [itemTemplate]="itemTemplateStatic">
+      </ngx-sand-typeahead>
+      <ng-template #itemTemplateStatic let-item let-position="index">
+        <!-- <a [innerHTML]="item.name"></a>
+      <span>{{position}}</span> -->
+        <div>{{position}}{{item.name}} </div>
+      </ng-template>
+      <button class="btn" type="submit">Submit</button>
+    </form>
+    <pre>{{ reactiveForm.value | json }}</pre>
+
+  </div>
+
+  
+
 </div>
 <div class="footer">
   <a target="_blank" href="https://github.com/SandeepBalachandran">Github</a>

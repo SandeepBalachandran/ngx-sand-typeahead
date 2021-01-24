@@ -21,3 +21,10 @@
         }
     }
 }
+.flex-container{
+    font-family: cursive;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

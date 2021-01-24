@@ -21,7 +21,8 @@
     "package-major": "npm run major && npm run package",
     "package-minor": "npm run minor && npm run package",
     "package-patch": "npm run patch && npm run package",
-    "publish" : "cd dist/sand-typeahead && npm publish"
+    "publish" : "cd dist/sand-typeahead && npm publish",
+    "build-demo":"ng build SandTypeaheadTester --prod  --base-href=https://sandeepbalachandran.github.io/ngx-sand-typeahead/"
   },
   "private": true,
   "dependencies": {

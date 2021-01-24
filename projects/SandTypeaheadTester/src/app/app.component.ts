@@ -16,19 +16,21 @@ export class AppComponent implements OnInit {
   title = 'SandTypeaheadTester';
   reactiveForm: FormGroup;
   dropdowndata: any = [];
+  someething: any;
   searchText: any;
   disabled: any;
   settings = {
     displayKey: 'name',
-    placeholder: 'Input here',
+    // filterKey:'nativeName',
+    placeholder: 'Input here', 
     inputDirection: 'ltr',
     height: 300,
-    limit: 20,
+    limit: 10,
     subTitleEnabled: true,
     subTitleKey: 'region',
     minorTitleEnabled: true,
     minorTitleKey: 'population',
-    noDataText:"User defined text"
+    noDataText:'User defined text'
   };
   ngOnInit(): void {
     this.service.allData().subscribe(
@@ -53,6 +55,7 @@ export class AppComponent implements OnInit {
   }
   onSearch(event): void {
     console.log(event);
+    console.log(this.someething)
     this.service.populateData(event.keyword).subscribe(
       (data) => {
         // this.dropdowndata = data;
@@ -66,13 +69,15 @@ export class AppComponent implements OnInit {
     );
   }
   onSelect(data): void {
+    console.log(data)
+    console.log(this.someething)
     this.searchText = data;
     // this.disabled = false;
   }
 
-  submitReactiveForm() {
+  submitReactiveForm(): void {
     if (this.reactiveForm.valid) {
-      console.log(this.reactiveForm.value);
+      console.log(this.reactiveForm);
     }
   }
 }

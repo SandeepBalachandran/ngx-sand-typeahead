@@ -19,7 +19,7 @@ import { Settings } from '../models/settings.model';
     }
   ],
 })
-export class SandTypeaheadComponent implements OnInit, OnChanges , ControlValueAccessor {
+export class SandTypeaheadComponent implements OnInit, OnChanges, ControlValueAccessor {
   dropdowndata: any = [];
   tempData: any = [];
   searchText: any;
@@ -29,7 +29,7 @@ export class SandTypeaheadComponent implements OnInit, OnChanges , ControlValueA
    * Custom template for the end user for dropdown
    */
   @Input() itemTemplate !: TemplateRef<any>;
-   
+
   /**
    * Custom template for no data found
    */
@@ -147,21 +147,26 @@ export class SandTypeaheadComponent implements OnInit, OnChanges , ControlValueA
    */
   onSearch(): void {
     this.propagateChange(this.searchText);
-    let tempDropdowndata  = this.tempData;
+    let tempDropdowndata = this.tempData;
     if (this.searchText !== '') {
       this.isOpen = true;
-      if (typeof tempDropdowndata !== 'undefined' && tempDropdowndata.length !== 0 ) {
+      if (typeof tempDropdowndata !== 'undefined' && tempDropdowndata.length !== 0) {
         tempDropdowndata = tempDropdowndata.filter((item: any) => {
-          return item[this.settings.displayKey].toLowerCase().indexOf(this.searchText.toLowerCase()) > -1;
+          if(typeof item[this.settings.filterKey] ==='number' && typeof this.searchText ==='string') {
+            // console.log('error')
+            // this.settings.noDataText = "Error! Trying to filter number with string";
+          } else {
+            return item[this.settings.filterKey].toLowerCase().indexOf(this.searchText.toLowerCase()) > -1;
+          }
         });
       }
     } else {
       this.isOpen = false;
     }
     this.dropdowndata = tempDropdowndata;
-    this.noData = this.dropdowndata.length? false:true;
+    this.noData = this.dropdowndata.length ? false : true;
 
-    const returnObj = {keyword: this.searchText, values: this.dropdowndata};
+    const returnObj = { keyword: this.searchText, values: this.dropdowndata };
     this.searchChange.emit(returnObj);
   }
   /**
@@ -169,7 +174,7 @@ export class SandTypeaheadComponent implements OnInit, OnChanges , ControlValueA
    */
   onSelect(data, index): void {
     this.searchText = data[this.settings.displayKey];
-    this.propagateChange({ index, value: data });
+    this.propagateChange(data[this.settings.displayKey]);
     this.isOpen = false;
     this.valueSelect.emit({ index, value: data });
   }
@@ -195,7 +200,8 @@ export class SandTypeaheadComponent implements OnInit, OnChanges , ControlValueA
   private settingsInit(): void {
     const settings: Settings = {
       inputDirection: 'ltr',
-      displayKey: 'name',
+      displayKey: '',
+      filterKey: '',
       placeholder: 'Input here',
       height: '300',
       limit: 0,
@@ -204,17 +210,32 @@ export class SandTypeaheadComponent implements OnInit, OnChanges , ControlValueA
       minorTitleEnabled: false,
       minorTitleKey: '',
       heading: '',
-      noDataText:'No data found'
+      noDataText: 'No data found'
     };
-    // if incoming settings object is empty , it will be initialized with predefiened values.
+    /*
+      * if incoming settings object is empty ,
+      * it will be initialized with predefiened values.
+    */
     if (this.settings === 'undefined' || Object.keys(this.settings).length === 0) {
       this.settings = { ...settings };
     }
-    // Replacing predifined values by incoming values.
-    // If no incoming value, predefined value will be taken
+
+     /*
+     * Set display key  as filter key if not provided
+    */
+    this.settings.filterKey = this.settings.filterKey ? this.settings.filterKey : this.settings.displayKey;
+
+    /*
+      * Replacing predifined values by incoming values.
+      * If no incoming value, predefined value will be taken
+    */
+
+
     for (const key of Object.keys(settings)) {
       this.settings[key] = this.settings[key] ? this.settings[key] : settings[key];
     }
+
+
     this.settings = { ...this.settings };
   }
 }
