@@ -81,7 +81,7 @@ export class SandTypeaheadComponent implements OnInit, OnChanges , ControlValueA
   ngOnInit(): void {
     if (typeof this.options !== 'undefined' && Array.isArray(this.options)) {
       this.dropdowndata = this.options;
-      this.tempData = this.options;
+      this.tempData = [...this.options];
     }
     this.settingsInit();
   }
@@ -90,7 +90,7 @@ export class SandTypeaheadComponent implements OnInit, OnChanges , ControlValueA
    */
   ngOnChanges(changes: SimpleChanges): void {
     this.dropdowndata = this.options;
-    this.tempData = this.options;
+    this.tempData = [...this.options];
     this.settingsInit();
   }
   /**
@@ -215,6 +215,5 @@ export class SandTypeaheadComponent implements OnInit, OnChanges , ControlValueA
     for (const key of Object.keys(settings)) {
       this.settings[key] = this.settings[key] ? this.settings[key] : settings[key];
     }
-    this.settings = { ...this.settings };
   }
 }
