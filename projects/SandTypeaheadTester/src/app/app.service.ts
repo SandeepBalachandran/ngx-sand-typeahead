@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AppService {
-  public apiRoot = 'https://restcountries.eu/rest/v2/';
+  public apiRoot = 'https://restcountries.com/v2/';
   constructor(private _http: HttpClient) { }
 
   handlError(error) {
