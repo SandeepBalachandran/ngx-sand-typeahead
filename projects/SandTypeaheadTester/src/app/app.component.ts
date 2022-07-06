@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AppService } from './app.service';
 
 @Component({
@@ -8,13 +8,13 @@ import { AppService } from './app.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(public service: AppService, private _fb: FormBuilder) {
+  constructor(public service: AppService, private _fb: UntypedFormBuilder) {
     this.reactiveForm = _fb.group({
       name: [{ value: '' }, Validators.required]
     });
   }
   title = 'SandTypeaheadTester';
-  reactiveForm: FormGroup;
+  reactiveForm: UntypedFormGroup;
   dropdowndata: any = [];
   searchText: any;
   disabled: any;
