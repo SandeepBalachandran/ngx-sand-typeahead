@@ -28,18 +28,6 @@
             "tsConfig": "projects/sand-typeahead/tsconfig.spec.json",
             "karmaConfig": "projects/sand-typeahead/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/sand-typeahead/tsconfig.lib.json",
-              "projects/sand-typeahead/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -140,19 +128,6 @@
               "projects/SandTypeaheadTester/src/styles.scss"
             ],
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/SandTypeaheadTester/tsconfig.app.json",
-              "projects/SandTypeaheadTester/tsconfig.spec.json",
-              "projects/SandTypeaheadTester/e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         },
         "e2e": {
